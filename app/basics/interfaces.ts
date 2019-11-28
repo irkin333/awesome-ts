@@ -21,7 +21,7 @@ let user1: Person = {
         return 'Hi, my name is: ' + this.name
     }
 }
-console.log(user1.printPersonInfo());
+// console.log(user1.printPersonInfo());
 
 
 
@@ -49,8 +49,8 @@ class EmployeePerson implements Person {
 }
 
 let employee = new EmployeePerson('Max', 25, 'engineer', 2);
-console.log(employee);
-console.log(employee.printPersonInfo());
+// console.log(employee);
+// console.log(employee.printPersonInfo());
 
 
 
@@ -82,7 +82,7 @@ interface AddFn {
 }
 
 let addInstance = (n1: number, n2: number) => { return n1 + n2; };
-console.log(addInstance(2, 3));
+// console.log(addInstance(2, 3));
 
 
 
@@ -98,4 +98,4 @@ class UserClass implements UserInterface {
 
 let user2 = new UserClass('David');
 let user3 = new UserClass('Marie', 25);
-console.log(user2.age, user3.age);
+// console.log(user2.age, user3.age);

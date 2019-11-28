@@ -29,10 +29,10 @@ class Department {
     }
 }
 let department1 = new Department('Test department 1', 1);
-department1.getName();
+// department1.getName();
 department1.addEmployee('Max');
 department1.addEmployee('Anna');
-department1.getEmployeesInfo();
+// department1.getEmployeesInfo();
 
 
 
@@ -42,7 +42,7 @@ class Product {
     constructor(private name:string, public readonly id:number) {  }
 }
 let product = new Product('First Test Product', 1);
-console.log(product);
+// console.log(product);
 
 
 
@@ -61,7 +61,7 @@ class ITDepartment extends Department {
 let itDepartment = new ITDepartment(11, true);
 itDepartment.addEmployee('Max');
 itDepartment.addEmployee('Anna');
-console.log(itDepartment);
+// console.log(itDepartment);
 
 
 
@@ -84,11 +84,11 @@ class AccountingDepartment extends Department {
     }
 };
 let accountingDepartment = new AccountingDepartment(11, 'Private report text');
-console.log(accountingDepartment.lastReport);
+// console.log(accountingDepartment.lastReport);
 accountingDepartment.lastReport = 'Another report';
 /* Compiler throw an error here */
 //console.log(accountingDepartment.report);
-console.log(accountingDepartment.lastReport);
+// console.log(accountingDepartment.lastReport);
 
 
 
@@ -102,7 +102,7 @@ class Employee {
 }
 const employee1 = Employee.createEmployee('Max', 1);
 const employee2 = Employee.createEmployee('Anna', 2);
-console.log(employee1, employee2);
+// console.log(employee1, employee2);
 
 
 
@@ -126,7 +126,7 @@ class FoodProduct extends AbstractProduct {
 }
 
 const melon = new FoodProduct('Melon', 111);
-melon.printName();
+// melon.printName();
 
 
 /*** Singletons & Private Constructors example ***/
@@ -150,4 +150,4 @@ class ManagementDepartment extends Department {
 
 /* an error here */
 //let managementDepartment = new ManagementDepartment(1);
-console.log(ManagementDepartment.getInstance());
+// console.log(ManagementDepartment.getInstance());

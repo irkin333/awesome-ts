@@ -1,4 +1,77 @@
 "use strict";
+function moveAnimal(animal) {
+    let speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpeed;
+    }
+    console.log('Animal speed is: ' + speed);
+}
+function combineItems(a, b) {
+    if (typeof a === 'string' || typeof b === 'string') {
+        return a.toString() + b.toString();
+    }
+    return a + b;
+}
+const validationError = {
+    email: 'Email has an incorrect value',
+    userNamr: 'Use only characters for user name'
+};
+const e1 = {
+    name: 'Max',
+    privileges: ['create-server'],
+    started: new Date()
+};
+var _a, _b;
+const fetchedData = {
+    id: 1,
+    name: 'Max',
+    job: { title: 'CEO', description: 'My own company' }
+};
+console.log((_b = (_a = fetchedData) === null || _a === void 0 ? void 0 : _a.job) === null || _b === void 0 ? void 0 : _b.title);
+const userInput = '';
+const storedData = (userInput !== null && userInput !== void 0 ? userInput : 'DEFAULT');
+const userInputElement = document.getElementById('user-name');
+userInputElement.value = 'Max';
+function addCombinable(a, b) {
+    if (typeof a === 'string' || typeof b === 'string') {
+        return (+a) + (+b);
+    }
+    return a + b;
+}
+function printEmployeeInfo(e) {
+    console.log(e.name);
+    if ('privileges' in e) {
+        console.log(e.privileges);
+    }
+    if ('started' in e) {
+        console.log(e.started);
+    }
+}
+class Car {
+    drive() {
+        console.log('Driving...');
+    }
+}
+class Truck {
+    drive() {
+        console.log('Driving a truck...');
+    }
+    loadCargo(amount) {
+        console.log('Loaded: ' + amount);
+    }
+}
+const v1 = new Car();
+const v2 = new Truck();
+function useVehicle(vehicle) {
+    vehicle.drive();
+    if (vehicle instanceof Truck) {
+        vehicle.loadCargo(100);
+    }
+}
 class Department {
     constructor(name, id) {
         this.employees = [];
@@ -16,10 +89,8 @@ class Department {
     }
 }
 let department1 = new Department('Test department 1', 1);
-department1.getName();
 department1.addEmployee('Max');
 department1.addEmployee('Anna');
-department1.getEmployeesInfo();
 class Product {
     constructor(name, id) {
         this.name = name;
@@ -27,7 +98,6 @@ class Product {
     }
 }
 let product = new Product('First Test Product', 1);
-console.log(product);
 class ITDepartment extends Department {
     constructor(id, hasComputers) {
         super('IT department', id);
@@ -42,7 +112,6 @@ class ITDepartment extends Department {
 let itDepartment = new ITDepartment(11, true);
 itDepartment.addEmployee('Max');
 itDepartment.addEmployee('Anna');
-console.log(itDepartment);
 class AccountingDepartment extends Department {
     constructor(id, report) {
         super('Accounting department', id);
@@ -60,9 +129,7 @@ class AccountingDepartment extends Department {
 }
 ;
 let accountingDepartment = new AccountingDepartment(11, 'Private report text');
-console.log(accountingDepartment.lastReport);
 accountingDepartment.lastReport = 'Another report';
-console.log(accountingDepartment.lastReport);
 class Employee {
     constructor(name, id) {
         this.name = name;
@@ -74,7 +141,6 @@ class Employee {
 }
 const employee1 = Employee.createEmployee('Max', 1);
 const employee2 = Employee.createEmployee('Anna', 2);
-console.log(employee1, employee2);
 class AbstractProduct {
     constructor(name, id) {
         this.name = name;
@@ -90,7 +156,6 @@ class FoodProduct extends AbstractProduct {
     }
 }
 const melon = new FoodProduct('Melon', 111);
-melon.printName();
 class ManagementDepartment extends Department {
     constructor(id) {
         super('Management department', id);
@@ -103,7 +168,6 @@ class ManagementDepartment extends Department {
     }
 }
 ;
-console.log(ManagementDepartment.getInstance());
 let user1 = {
     name: 'John Doe',
     age: 25,
@@ -115,7 +179,6 @@ let user1 = {
         return 'Hi, my name is: ' + this.name;
     }
 };
-console.log(user1.printPersonInfo());
 class EmployeePerson {
     constructor(name, age, position, experience) {
         this.name = name;
@@ -133,11 +196,8 @@ class EmployeePerson {
     }
 }
 let employee = new EmployeePerson('Max', 25, 'engineer', 2);
-console.log(employee);
-console.log(employee.printPersonInfo());
 ;
 let addInstance = (n1, n2) => { return n1 + n2; };
-console.log(addInstance(2, 3));
 class UserClass {
     constructor(name, age) {
         this.name = name;
@@ -146,7 +206,6 @@ class UserClass {
 }
 let user2 = new UserClass('David');
 let user3 = new UserClass('Marie', 25);
-console.log(user2.age, user3.age);
 let numberType;
 let stringType;
 let booleanType;
