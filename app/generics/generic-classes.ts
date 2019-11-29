@@ -1,6 +1,6 @@
 /*** i don't care about data type for my StorageClass items ***/
 
-class StorageClass<T extends string | number | boolean> {
+class StorageClass<T> {
     private data: T[] = [];
 
     addItem(item: T) {
@@ -19,7 +19,7 @@ class StorageClass<T extends string | number | boolean> {
 
 const storageInstance = new StorageClass();
 storageInstance.addItem('Anna');
-storageInstance.addItem(25);
+storageInstance.addItem({name: 'Max'});
 //console.log(storageInstance.getItems());
 
 /*** this storage will work only with strings ***/
