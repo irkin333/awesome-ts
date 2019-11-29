@@ -14,4 +14,4 @@ const fetchedData = {
 const userInput = '';
 
 /* ?? is a nullish coalescing */
-const storedData = userInput ?? 'DEFAULT';
+//const storedData = userInput ?? 'DEFAULT';

@@ -25,15 +25,12 @@ const e1 = {
     privileges: ['create-server'],
     started: new Date()
 };
-var _a, _b;
 const fetchedData = {
     id: 1,
     name: 'Max',
     job: { title: 'CEO', description: 'My own company' }
 };
-console.log((_b = (_a = fetchedData) === null || _a === void 0 ? void 0 : _a.job) === null || _b === void 0 ? void 0 : _b.title);
 const userInput = '';
-const storedData = (userInput !== null && userInput !== void 0 ? userInput : 'DEFAULT');
 const userInputElement = document.getElementById('user-name');
 userInputElement.value = 'Max';
 function addCombinable(a, b) {
@@ -244,5 +241,63 @@ let add1FuntionType;
 add1FuntionType = add1;
 function throwError(message) {
     throw { message };
+}
+class StorageClass {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const storageInstance = new StorageClass();
+storageInstance.addItem('Anna');
+storageInstance.addItem(25);
+const stringsStorageInstance = new StorageClass();
+stringsStorageInstance.addItem('Anna');
+function createCourse(title, description, date) {
+    let cg = {};
+    cg.title = title;
+    cg.description = description;
+    cg.completedOn = date;
+    return cg;
+}
+const namesList = ['Max', 'Anna'];
+const genericArray = [];
+const genericPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('done!');
+    }, 2000);
+});
+function merge(a, b) {
+    return Object.assign(a, b);
+}
+const mergedObject = merge({ name: 'Max' }, { age: 25 });
+const mergedObject2 = merge({ id: 0 }, { title: 'test' });
+function logArgs(a, b) {
+    console.log(Object.assign(a, b));
+    console.log('Objects are assigned');
+}
+function countAndPrint(el) {
+    let descriptionText = 'No value';
+    if (el.length === 1) {
+        descriptionText = 'Got 1 element.';
+    }
+    else if (el.length > 1) {
+        descriptionText = 'Got ' + el.length + ' elements.';
+    }
+    return [el, descriptionText];
+}
+function extractAndConvert(obj, key) {
+    return obj[key];
 }
 //# sourceMappingURL=bundle.js.map
