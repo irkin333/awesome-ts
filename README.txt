@@ -5,4 +5,4 @@ Page will be available on:
 http://localhost:3000/
 
 Run TS watch in terminal: 
-tcs -w 
+tsc -w 
