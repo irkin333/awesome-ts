@@ -1,8 +1,8 @@
 /* Decorator Factory example */
 function LoggerFactory(logText: string) {
     return function(constructor: Function) {
-        // console.log(logText);
-        // console.log(constructor);
+        console.log(logText);
+        console.log(constructor);
     }
 }
 

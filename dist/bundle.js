@@ -272,6 +272,8 @@ const change = new ClassToChange();
 console.log(change);
 function LoggerFactory(logText) {
     return function (constructor) {
+        console.log(logText);
+        console.log(constructor);
     };
 }
 function WithTemplate(template, hookId) {
