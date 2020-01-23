@@ -5,6 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 function moveAnimal(animal) {
     let speed;
     switch (animal.type) {
@@ -248,10 +251,27 @@ add1FuntionType = add1;
 function throwError(message) {
     throw { message };
 }
+function ChangeDecorator(log) {
+    return function (originalConstructor) {
+        return class extends originalConstructor {
+            constructor(..._) {
+                super();
+                console.log(log);
+            }
+        };
+    };
+}
+let ClassToChange = class ClassToChange {
+    constructor() {
+    }
+};
+ClassToChange = __decorate([
+    ChangeDecorator('log text')
+], ClassToChange);
+const change = new ClassToChange();
+console.log(change);
 function LoggerFactory(logText) {
     return function (constructor) {
-        console.log(logText);
-        console.log(constructor);
     };
 }
 function WithTemplate(template, hookId) {
@@ -267,14 +287,13 @@ function WithTemplate(template, hookId) {
 let PersonClass = class PersonClass {
     constructor() {
         this.name = 'Irina';
-        console.log('Creating a person...');
     }
 };
 PersonClass = __decorate([
+    LoggerFactory('LOGGING - PERSON'),
     WithTemplate('<h1>My person</h1>', 'app')
 ], PersonClass);
 const person2 = new PersonClass();
-console.log(person2);
 function Logger(target) {
 }
 let Person = class Person {
@@ -286,6 +305,39 @@ Person = __decorate([
     Logger
 ], Person);
 const person1 = new Person();
+function Log(target, propertyName) {
+}
+function Log2(target, name, descriptor) {
+}
+function Log3(target, name, descriptor) {
+}
+function Log4(target, name, position) {
+}
+class UserAClass {
+    constructor(t, p) {
+        this.title = t;
+        this._price = p;
+    }
+    set price(val) {
+        if (val > 0) {
+            this._price = val;
+        }
+    }
+    getPriceWithTax(tax) {
+        return this._price * (1 + tax);
+    }
+}
+__decorate([
+    Log
+], UserAClass.prototype, "title", void 0);
+__decorate([
+    Log2
+], UserAClass.prototype, "price", null);
+__decorate([
+    Log3,
+    __param(0, Log4)
+], UserAClass.prototype, "getPriceWithTax", null);
+const userA = new UserAClass('title', 45);
 class StorageClass {
     constructor() {
         this.data = [];

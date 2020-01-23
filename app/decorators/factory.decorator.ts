@@ -1,8 +1,8 @@
 /* Decorator Factory example */
 function LoggerFactory(logText: string) {
     return function(constructor: Function) {
-        console.log(logText);
-        console.log(constructor);
+        // console.log(logText);
+        // console.log(constructor);
     }
 }
 
@@ -17,15 +17,15 @@ function WithTemplate(template: string, hookId: string) {
     }
 }
 
-// @LoggerFactory('LOGGING - PERSON')
+@LoggerFactory('LOGGING - PERSON')
 @WithTemplate('<h1>My person</h1>', 'app')
 class PersonClass {
     name = 'Irina';
 
     constructor() {
-        console.log('Creating a person...');
+        //console.log('Creating a person...');
     }
 }
 
 const person2 = new PersonClass();
-console.log(person2);
+//console.log(person2);
